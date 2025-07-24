@@ -36,14 +36,15 @@
       font-weight: bold;
       margin-bottom: 0.5rem;
       color: #000;
+      cursor: pointer;
     }
 
     .curso.electivo {
-      background-color: #fdd8e8; /* electivo */
+      background-color: #fdd8e8;
     }
 
     .curso.convalidado {
-      background-color: #e0fdd8; /* convalidado */
+      background-color: #e0fdd8;
     }
 
     .prereq {
@@ -57,26 +58,28 @@
     .curso.completed {
       opacity: 0.6;
       text-decoration: line-through;
-      font-weight: bold;
     }
 
-    #electivos {
-      margin-top: 4rem;
+    .nota {
+      font-size: 0.9em;
+      font-weight: normal;
+      color: #333;
     }
 
-    #electivos .curso {
-      margin-bottom: 0.7rem;
+    #resumen {
+      margin-top: 3rem;
+      padding: 1rem;
+      background-color: #eee;
+      border-radius: 12px;
     }
 
-    @media (max-width: 900px) {
-      #ciclos-grid {
-        grid-template-columns: 1fr;
-      }
+    textarea {
+      width: 100%;
+      margin-top: 5px;
+      border-radius: 8px;
+      padding: 4px;
     }
   </style>
-
-</head>
-   
 </head>
 <body>
   <h1>Malla Curricular de Derecho</h1>
@@ -204,13 +207,68 @@
 
   </section>
 
+  <div class="curso" data-creditos="4">Ejemplo de Curso</div>
+    <div class="curso convalidado" data-creditos="3">Ejemplo Convalidado</div>
+    <div class="curso electivo" data-creditos="3">Ejemplo Electivo</div>
+  </div>
+
+  <div id="resumen">
+    <h2>Resumen</h2>
+    <p>Promedio general: <span id="promedio">-</span></p>
+    <p>Créditos acumulados: <span id="creditos">0</span></p>
+  </div>
+
   <script>
-    document.querySelectorAll('.curso').forEach(curso => {
+    const cursos = document.querySelectorAll('.curso');
+    const promedioSpan = document.getElementById('promedio');
+    const creditosSpan = document.getElementById('creditos');
+
+    cursos.forEach(curso => {
       curso.addEventListener('click', () => {
         curso.classList.toggle('completed');
+
+        if (curso.classList.contains('completed')) {
+          const nota = prompt("¿Cuál fue tu nota en este curso?");
+          const opinion = prompt("Opinión personal sobre el curso:");
+          const recomendar = prompt("¿Lo recomendarías? (Sí / No)");
+          if (nota) {
+            curso.dataset.nota = nota;
+            curso.dataset.recomendar = recomendar;
+            curso.dataset.opinion = opinion;
+            curso.innerHTML += `<div class='nota'>Nota: ${nota} <br>¿Recomendarías?: ${recomendar} <br>Opinión: ${opinion}</div>`;
+          }
+        } else {
+          delete curso.dataset.nota;
+          delete curso.dataset.opinion;
+          delete curso.dataset.recomendar;
+          curso.querySelector('.nota')?.remove();
+        }
+        calcularPromedio();
+      });
+    });
+
+    function calcularPromedio() {
+      let totalNotas = 0;
+      let totalCreditos = 0;
+      let creditosAcumulados = 0;
+
+      cursos.forEach(curso => {
+        if (curso.classList.contains('completed')) {
+          const nota = parseFloat(curso.dataset.nota);
+          const creditos = parseFloat(curso.dataset.creditos);
+          creditosAcumulados += creditos;
+
+          if (!curso.classList.contains('convalidado') && !isNaN(nota)) {
+            totalNotas += nota * creditos;
+            totalCreditos += creditos;
+          }
+        }
       });
 
-    });
+      const promedio = totalCreditos > 0 ? (totalNotas / totalCreditos).toFixed(2) : '-';
+      promedioSpan.textContent = promedio;
+      creditosSpan.textContent = creditosAcumulados;
+    }
   </script>
 </body>
 </html>
