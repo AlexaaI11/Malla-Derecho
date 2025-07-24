@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Curricular Derecho</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      color: #000;
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    #ciclos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .ciclo {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    }
+
+    .curso {
+      background-color: #d8eafd; /* normal */
+      border-radius: 20px;
+      padding: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    .curso.electivo {
+      background-color: #fdd8e8; /* electivo */
+    }
+
+    .curso.convalidado {
+      background-color: #e0fdd8; /* convalidado */
+    }
+
+    .prereq {
+      display: block;
+      font-style: italic;
+      font-size: 0.85em;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .curso.completed {
+      opacity: 0.6;
+      text-decoration: line-through;
+      font-weight: bold;
+    }
+
+    #electivos {
+      margin-top: 4rem;
+    }
+
+    #electivos .curso {
+      margin-bottom: 0.7rem;
+    }
+
+    @media (max-width: 900px) {
+      #ciclos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+   
+</head>
+<body>
+  <h1>Malla Curricular de Derecho</h1>
+
+  <section id="ciclos">
+  <div id="ciclos-grid">
+  <div class="ciclo">
+    <h2>Ciclo 1</h2>
+    <div class="curso">Psicología: 3 créditos</div>
+    <div class="curso convalidado">Matemática General (C): 4 créditos</div>
+    <div class="curso convalidado">Lenguaje y Comunicación (C): 4 créditos</div>
+    <div class="curso convalidado">Introducción al Derecho (C): 3 créditos</div>
+    <div class="curso">Filosofía: 3 créditos</div>
+    <div class="curso">Empresa, Sociedad y Gobierno: 3 créditos</div>
+    <div class="curso">Desempeño Universitario: 3 créditos</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 2</h2>
+    <div class="curso">Redacción General: 3 créditos</div>
+    <div class="curso">Realidad Nacional: 2 créditos</div>
+    <div class="curso">Derecho Penal (Parte General): 4 créditos</div>
+    <div class="curso">Derecho Constitucional I: 4 créditos</div>
+    <div class="curso">Contabilidad General: 4 créditos</div>
+    <div class="curso convalidado">Bases Romanísticas del Derecho (C): 3 créditos</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 3</h2>
+    <div class="curso convalidado">Personas Naturales y Jurídicas (C): 3 créditos</div>
+    <div class="curso convalidado">Introducción a la Ciencia Política (C): 3 créditos</div>
+    <div class="curso">Introducción a la Investigación: 3 créditos <span class="prereq">Prerrequisito: Desempeño Universitario, Lenguaje y Comunicación</span></div>
+    <div class="curso convalidado">Inglés (C): 2 créditos</div>
+    <div class="curso">Educación Ambiental: 2 créditos</div>
+    <div class="curso convalidado">Economía I (C): 3 créditos</div>
+    <div class="curso">Derecho Constitucional II: 4 créditos <span class="prereq">Prerrequisito: Derecho Constitucional I</span></div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 4</h2>
+    <div class="curso">Taller de Liderazgo y Habilidades: 3 créditos <span class="prereq">Prerrequisito: Redacción General</span></div>
+    <div class="curso convalidado">Derechos Reales (C): 3 créditos</div>
+    <div class="curso">Derecho Penal II: 3 créditos <span class="prereq">Prerrequisito: Derecho Penal (Parte General)</span></div>
+    <div class="curso">Derecho Ambiental: 3 créditos <span class="prereq">Prerrequisito: Introducción al Derecho</span></div>
+    <div class="curso">Derecho Administrativo: 3 créditos <span class="prereq">Prerrequisito: Derecho Constitucional I</span></div>
+    <div class="curso convalidado">Acto Jurídico (C): 4 créditos</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 5</h2>
+    <div class="curso">Mecanismos Alternativos Solución de Controversias: 3 créditos <span class="prereq">Prerrequisito: Acto Jurídico</span></div>
+    <div class="curso">Derecho Procesal Penal I: 4 créditos <span class="prereq">Prerrequisito: Derecho Penal II</span></div>
+    <div class="curso">Derecho Procesal Civil I: 4 créditos <span class="prereq">Prerrequisito: Acto Jurídico</span></div>
+    <div class="curso">Derecho Laboral General: 3 créditos <span class="prereq">Prerrequisito: Introducción al Derecho</span></div>
+    <div class="curso">Derecho Administrativo II: 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo</span></div>
+    <div class="curso">Derecho de Obligaciones: 4 créditos <span class="prereq">Prerrequisito: Derechos Reales</span></div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 6</h2>
+    <div class="curso">Ética y Deontología Jurídica: 3 créditos <span class="prereq">Prerrequisito: Personas Naturales y Jurídicas</span></div>
+    <div class="curso">Derecho de Contratos: 4 créditos <span class="prereq">Prerrequisito: Derecho de Obligaciones</span></div>
+    <div class="curso">Derecho Procesal Civil II: 3 créditos <span class="prereq">Prerrequisito: Derecho Procesal Civil I</span></div>
+    <div class="curso">Derecho Procesal Administrativo: 4 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso">Derecho Laboral de Empresa: 3 créditos <span class="prereq">Prerrequisito: Derecho Laboral General</span></div>
+    <div class="curso">Clínica de Derecho Ambiental: 4 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 7</h2>
+    <div class="curso">Derecho de Familia: 4 créditos <span class="prereq">Prerrequisito: Derecho de Contratos</span></div>
+    <div class="curso">Derecho Tributario I: 4 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso">Derecho Societario: 5 créditos <span class="prereq">Prerrequisito: Personas Naturales y Jurídicas</span></div>
+    <div class="curso">Derecho Procesal Laboral: 3 créditos <span class="prereq">Prerrequisito: Derecho Laboral de Empresa</span></div>
+    <div class="curso">Contratos Especiales: 3 créditos <span class="prereq">Prerrequisito: Derecho de Contratos</span></div>
+    <div class="curso">Conflictos Ambientales: 3 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 8</h2>
+    <div class="curso">Responsabilidad Civil: 3 créditos <span class="prereq">Prerrequisito: Derecho de Obligaciones</span></div>
+    <div class="curso">Pluralismo Jurídico: 4 créditos <span class="prereq">Prerrequisito: Mecanismos Alternativos Solución de Controversias</span></div>
+    <div class="curso">Derecho de Sucesiones: 3 créditos <span class="prereq">Prerrequisito: Derecho de Familia</span></div>
+    <div class="curso">Derecho Tributario II: 5 créditos <span class="prereq">Prerrequisito: Derecho Tributario I</span></div>
+    <div class="curso">Derecho Minero y Energético: 3 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+    <div class="curso convalidado">Derecho Financiero (C): 4 créditos <span class="prereq">Prerrequisito: Economía I</span></div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 9</h2>
+    <div class="curso">Seminario de Investigación Jurídica: 4 créditos <span class="prereq">Prerrequisito: Introducción a la Investigación</span></div>
+    <div class="curso">Gestión Aduanera: 4 créditos <span class="prereq">Prerrequisito: Derecho Tributario II</span></div>
+    <div class="curso">Desarrollo Sostenible: 4 créditos <span class="prereq">Prerrequisito: Conflictos Ambientales / Derecho Ambiental</span></div>
+    <div class="curso">Derecho Internacional Privado: 3 créditos <span class="prereq">Prerrequisito: Derecho de Familia</span></div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 10</h2>
+    <div class="curso">Trabajo de Investigación: 4 créditos <span class="prereq">Prerrequisito: Seminario de Investigación Jurídica</span></div>
+    <div class="curso">Public International Law: 3 créditos <span class="prereq">Prerrequisito: Derecho Internacional Privado</span></div>
+    <div class="curso">Delitos Ambiental y Económicos: 4 créditos <span class="prereq">Prerrequisito: Derecho Ambiental / Derecho Penal II</span></div>
+  </div>
+  </section>
+
+  <section id="electivos">
+  <h2>Cursos Electivos</h2>
+    <div class="curso electivo">Seminario de Derecho y Tecnología (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso electivo">Regulación de la Biodiversidad (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+    <div class="curso electivo">Public Policy Lab: BeLatin (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso electivo">Práctica del Derecho y Destrezas (E): 3 créditos <span class="prereq">Prerrequisito: Conflictos Ambientales / Desarrollo Sostenible</span></div>
+    <div class="curso electivo">Ordenamiento Territorial (E): 3 créditos <span class="prereq">Prerrequisito: Desarrollo Sostenible</span></div>
+    <div class="curso electivo">Litigación y Destreza Legislativa: Moot (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Procesal Civil II</span></div>
+    <div class="curso electivo">Legislación del Mar (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+    <div class="curso electivo">Legislación Agraria, Forestal (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+    <div class="curso electivo">Legal Tech (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso electivo">Global Sustainability Law (E): 3 créditos <span class="prereq">Prerrequisito: Desarrollo Sostenible</span></div>
+    <div class="curso electivo">Evaluación y Fiscalización Ambiental (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II / Derecho Ambiental</span></div>
+    <div class="curso electivo">Derecho Integración Económica y Jurídica (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II / Derecho Financiero</span></div>
+    <div class="curso electivo">Derecho Industrial y Pesquero (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Ambiental</span></div>
+    <div class="curso electivo">Derecho Comercio Internacional (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Financiero</span></div>
+    <div class="curso electivo">Derecho Administrativo Económico (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso electivo">Derecho de Inteligencia Artificial (E): 3 créditos <span class="prereq">Prerrequisito: Derecho Administrativo II</span></div>
+    <div class="curso electivo">Clínica de Derecho Ambiental II (E): 3 créditos <span class="prereq">Prerrequisito: Clínica de Derecho Ambiental</span></div>
+    <div class="curso electivo">Clínica Legal de Intereses Públicos (E): 3 créditos <span class="prereq">Prerrequisito: Clínica de Derecho Ambiental</span></div>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.curso').forEach(curso => {
+      curso.addEventListener('click', () => {
+        curso.classList.toggle('completed');
+      });
+
+    });
+  </script>
+</body>
+</html>
